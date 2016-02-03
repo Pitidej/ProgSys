@@ -4,5 +4,10 @@
 int main ()
 {
   int a = creer_serveur(8080);
-  return a;
+
+  while (1){
+    accepte_client(a);
+  }
+  
+  return 0;
 }

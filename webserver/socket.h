@@ -8,5 +8,6 @@
     socket créée. */
 
 int creer_serveur(int port);
+int accepte_client(int sock);
 #endif
 

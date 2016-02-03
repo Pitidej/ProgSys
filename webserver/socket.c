@@ -38,19 +38,25 @@ int creer_serveur(int port){
     /* traitement d ’ erreur */
   }
 
+  
+
+  return socket_serveur;
+
+}
+
+int accepte_client(int sock){
+  
+  const char * message_bienvenue = "Bonjour, bienvenue sur mon serveur. \n Il est pas intéréssant mais tant qu'il fonctionne, ca va. \n Sauf que M.Carle ne sera pas satistait. \n En l'occurence, on ne se pose pas assez de question. \n On est con. \n On ne sait pas rechercher dans la doc. \n J'espère que ca fait 10 lignes. \n" ;
   /* Accepter une connexion */
 
   int socket_client ;
-  socket_client = accept(socket_serveur, NULL, NULL);
+  socket_client = accept(sock, NULL, NULL);
   if (socket_client == -1) {
     perror("accept");
     /* traitement d’ erreur */
   }
-  /* On peut maintenant dialoguer avec le client */
-  const char * message_bienvenue = "Bonjour, bienvenue sur mon serveur. \n Il est pas intéréssant mais tant qu'il fonctionne, ca va. \n Sauf que M.Carle ne sera pas satistait. \n En l'occurence, on ne se pose pas assez de question. \n On est con. \n On ne sait pas rechercher dans la doc. \n J'espère que ca fait 10 lignes. \n" ;
   sleep(1);
   write(socket_client, message_bienvenue, strlen(message_bienvenue));
 
-  return socket_serveur;
-
+  return socket_client;
 }
