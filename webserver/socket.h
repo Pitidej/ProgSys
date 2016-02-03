@@ -1,5 +1,5 @@
 #ifndef __SOCKET_H__
-#defin __SOCKET_H__
+#define __SOCKET_H__
 /** Crée une socket serveur qui écoute sur toute les interfaces IPv4
     de la machine sur le port passé en paramètre. La socket retournée
     doit pouvoir être utilisée directement par un appel à accept.
@@ -9,3 +9,4 @@
 
 int creer_serveur(int port);
 #endif
+
