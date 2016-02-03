@@ -66,10 +66,3 @@ int accepte_client(int sock){
 
   return socket_client;
 }
-
-void initialiser_signaux (void){
-  if (signal(SIGPIPE, SIG_IGN) == SIG_ERR)
-    {
-      perror("signal");
-    }
-}
