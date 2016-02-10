@@ -7,6 +7,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <signal.h>
+#include <sys/wait.h>
 
 
 int creer_serveur(int port){
@@ -21,6 +22,8 @@ int creer_serveur(int port){
       /* traitement de l ’ erreur */
     }
 
+  initialiser_signaux();
+  
   /* Attachement de la socket */
 
   struct sockaddr_in saddr ;
@@ -53,7 +56,7 @@ int creer_serveur(int port){
 
 int accepte_client(int sock){
   
-  const char * message_bienvenue = "Bonjour, bienvenue sur mon serveur. \n Il est pas intéréssant mais tant qu'il fonctionne, ca va. \n Sauf que M.Carle ne sera pas satistait. \n En l'occurence, on ne se pose pas assez de question. \n On est con. \n On ne sait pas rechercher dans la doc. \n J'espère que ca fait 10 lignes. \n" ;
+  const char * message_bienvenue = "Bonjour, bienvenue sur mon serveur. \n Il est pas interessant mais tant qu'il fonctionne, ca va. \n Sauf que M.Carle ne sera pas satistait. \n En l'occurence, on ne se pose pas assez de question. \n On est con. \n On ne sait pas rechercher dans la doc. \n J'espere que ca fait 10 lignes. \n" ;
   /* Accepter une connexion */
 
   int socket_client ;
@@ -68,8 +71,25 @@ int accepte_client(int sock){
   return socket_client;
 }
 
-void initialiser_signaux(void){
+void traitement_signal(int sig)
+{
+  printf("Signal %d recu\n", sig);
+  wait(&sig);
+}
+
+void initialiser_signaux (void)
+{
   if(signal(SIGPIPE, SIG_IGN) == SIG_ERR){
     perror("signal");
   }
+  
+  struct sigaction sa;
+  
+  sa.sa_handler = traitement_signal;
+  sigemptyset(&sa.sa_mask);
+  sa.sa_flags = SA_RESTART;
+  if (sigaction(SIGCHLD,&sa,NULL) == -1)
+    {
+      perror ("sigaction(SIGCHLD)");
+    }
 }

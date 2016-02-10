@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/socket.h>
+#include <stdlib.h>
 
 int main ()
 {
@@ -11,7 +12,6 @@ int main ()
   char message [1024] = "";
   int socket_client;
   int pid;
-  initialiser_signaux();
   while ((socket_client = accepte_client(a)) != -1){
     pid=fork();
     if(pid==0){
@@ -24,9 +24,10 @@ int main ()
 	{
 	write(socket_client, message, strlen(message));
        }
+      close(socket_client);
+      exit(1);
     }
+    close(socket_client);
   }
-  initialiser_signaux();
-  close(socket_client);
   return 0;
 }
