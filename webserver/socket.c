@@ -61,13 +61,19 @@ int accepte_client(int sock){
 
   int socket_client ;
   socket_client = accept(sock, NULL, NULL);
+  
+  FILE * fd=fdopen(socket_client,"w+");
+  
   if (socket_client == -1) {
     perror("accept");
     /* traitement d’ erreur */
   }
-  sleep(3);
-  write(socket_client, message_bienvenue, strlen(message_bienvenue));
-
+  sleep(1);
+  
+  fprintf(fd, "%s%s", "Pawnee ", message_bienvenue);
+  
+  fflush(fd);
+  
   return socket_client;
 }
 
@@ -75,6 +81,9 @@ void traitement_signal(int sig)
 {
   printf("Signal %d recu\n", sig);
   wait(&sig);
+  if(WIFSIGNALED(sig)){
+    printf("%s\n", WTERMSIG(sig));
+  }
 }
 
 void initialiser_signaux (void)
