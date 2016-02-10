@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include <signal.h>
 
 
 int creer_serveur(int port){
@@ -61,8 +62,14 @@ int accepte_client(int sock){
     perror("accept");
     /* traitement d’ erreur */
   }
-  sleep(1);
+  sleep(3);
   write(socket_client, message_bienvenue, strlen(message_bienvenue));
 
   return socket_client;
+}
+
+void initialiser_signaux(void){
+  if(signal(SIGPIPE, SIG_IGN) == SIG_ERR){
+    perror("signal");
+  }
 }
