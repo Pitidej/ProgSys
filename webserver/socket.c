@@ -71,7 +71,7 @@ int accepte_client(int sock){
   sleep(1);
   
   fprintf(fd, "%s%s", "Pawnee ", message_bienvenue);
-  
+
   fflush(fd);
   
   return socket_client;
@@ -82,7 +82,7 @@ void traitement_signal(int sig)
   printf("Signal %d recu\n", sig);
   wait(&sig);
   if(WIFSIGNALED(sig)){
-    printf("%s\n", WTERMSIG(sig));
+    printf("%d\n", WTERMSIG(sig));
   }
 }
 
