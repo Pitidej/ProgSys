@@ -17,6 +17,7 @@ int main ()
     pid=fork();
     if(pid==0){
       FILE * fd = fdopen(socket_client, "w+");
+      
       int i = read(socket_client, message, 1023);
       /*if (i != -1)
 	{
@@ -31,11 +32,13 @@ int main ()
       close(socket_client);
       exit(1);
       }*/
-      fprintf(fd, "[Pawnee] %s", message);
+      
+      //fprintf(fd, "[Pawnee] %s", message);
+      printf("[Pawnee] %s", message);
       while (i){
 	while (fgets(message, sizeof(message), fd) != NULL) {
 	  printf("[Pawnee] %s", message);
-	  fprintf(fd, "[Pawnee] %s", message);
+	  //fprintf(fd, "[Pawnee] %s", message);
 	}
       }
     //close(socket_client);
