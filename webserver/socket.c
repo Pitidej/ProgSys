@@ -56,23 +56,18 @@ int creer_serveur(int port){
 
 int accepte_client(int sock){
   
-  const char * message_bienvenue = "Bonjour, bienvenue sur mon serveur. \n Il est pas interessant mais tant qu'il fonctionne, ca va. \n Sauf que M.Carle ne sera pas satistait. \n En l'occurence, on ne se pose pas assez de question. \n On est con. \n On ne sait pas rechercher dans la doc. \n J'espere que ca fait 10 lignes. \n" ;
   /* Accepter une connexion */
 
   int socket_client ;
   socket_client = accept(sock, NULL, NULL);
   
-  FILE * fd=fdopen(socket_client,"w+");
+  //FILE * fd=fdopen(socket_client,"w+");
   
   if (socket_client == -1) {
     perror("accept");
     /* traitement d’ erreur */
   }
   sleep(1);
-  
-  fprintf(fd, "%s%s", "Pawnee ", message_bienvenue);
-
-  fflush(fd);
   
   return socket_client;
 }
