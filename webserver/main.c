@@ -13,51 +13,33 @@ int main ()
   char message [1024] = "";
   int socket_client;
   int pid;
-  const char *mess400 = "HTTP/1.1 400 Bad Request\r\nConnection: Close\r\nContent-Length: 17 \r\n\n400 Bad request\r";
-  const char *mess404 = "HTTP/1.1 404 Not found\r\nConnection: Close\r\nContent-Length: 17 \r\n\n400 Bad request\r";
-  const char *mess200 = "HTTP/1.1 200 OK\nContent-Length : 23\r\n";
 
   const char * message_bienvenue = "Bonjour, bienvenue sur mon serveur\n";
-  char test[1024];
-  char *methode;
-  char *url;
-  char *ressources;
-  char *spl;
+
+  http_request requete;
+  int pars;
+  
   while ((socket_client = accepte_client(a)) != -1){
     pid=fork();
     if(pid==0){
       FILE * fd = fdopen(socket_client, "w+");
-      fgets(message, sizeof(message), fd);
-      while (fgets(test,sizeof(test),fd)!=NULL && test[0]!='\r' && test[0]!='\n'){
-      }
-      //int i = read(socket_client, message, 1023);
-      methode = strtok(message, " ");
-      url = strtok(NULL, " ");
-      ressources = strtok(NULL, " ");
-      spl = strtok(NULL, " ");
+      fgets_or_exit(message, sizeof(message), fd);
+      pars = parse_http_request(message, &requete);
+      skip_headers(fd);
       
-      //printf("%s\n%s\n%s",methode, ressources, spl);
-      
-      if ((strcmp(methode,"GET")==0) && ((strstr(ressources,"HTTP/1.0")==0) || (strstr(ressources,"HTTP/1.1")==0)) && (spl == NULL) ){
-	if (strcmp(url,"/")==0){
-	  fprintf(fd, "[pawneeeeee] %s \n", mess200);
-	  fflush(fd);
-	  fprintf(fd,"%s\n",message_bienvenue);
-	  fclose(fd);
-	} else {
-	  fprintf(fd,"%s\n", mess404);
-	  fflush(fd);
-	  fclose(fd);
-	}
+      if (!pars){
+	send_response(fd, 400,"Bad Request", "Bad request\r\n");
+      } else if(requete.method == HTTP_UNSUPPORTED){
+	send_response(fd ,405 ,"Method Not Allowed", "Method Not Allowed\r\n");
+      } else if (strcmp(requete.url, "/") == 0){
+	send_response(fd, 200, "OK" , message_bienvenue);
       } else {
-	fprintf(fd,"%s\n",mess400);
-	fflush(fd);
-	fclose(fd);
-      }
-       
+	send_response(fd, 404, "Not Found", "Not Found\r\n");
+      }  
+      fclose(fd);
     } else {
       close(socket_client);
     }
   }
-return 0;
+  return 0;
 }

@@ -109,15 +109,15 @@ char* fgets_or_exit(char *buffer , int size , FILE *stream){
 int parse_http_request(const char* request_line, http_request* request ){
   char* methode;
   char* url;
-  char* http_version;
+  char* version;
   char* struc = strdup(request_line);
-  if((methode = strtok (struc," ")) == NULL){
+  if((methode = strtok(struc," ")) == NULL){
     return 0;
   }
-  if((url = strtok (NULL, " ")) == NULL) {
+  if((url = strtok(NULL, " ")) == NULL) {
     return 0;
   }
-  if((http_version = strtok (NULL, " ")) == NULL) {
+  if((version = strtok(NULL, " ")) == NULL) {
     return 0;
   }
   if(strcmp(methode,"GET") == 0) {
@@ -125,7 +125,7 @@ int parse_http_request(const char* request_line, http_request* request ){
   }else{
     request->method = HTTP_UNSUPPORTED;
   }
-  if ((strcmp(http_version,"HTTP/1.0")!=0) && (strcmp(http_version,"HTTP/1.1")!=0)) {
+  if ((strcmp(version,"HTTP/1.0")==1) && (strcmp(version,"HTTP/1.1")==1)) {
     return 0;
   }
   request->url = url;
