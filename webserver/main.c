@@ -17,7 +17,7 @@ int main ()
   const char *mess404 = "HTTP/1.1 404 Not found\r\nConnection: Close\r\nContent-Length: 17 \r\n\n400 Bad request\r";
   const char *mess200 = "HTTP/1.1 200 OK\nContent-Length : 23\r\n";
 
-  const char * message_bienvenue = "Bonjour, bienvenue sur mon serveur. \n Il est pas interessant mais tant qu'il fonctionne, ca va. \n Sauf que M.Carle ne sera pas satistait. \n En l'occurence, on ne se pose pas assez de question. \n On est con. \n On ne sait pas rechercher dans la doc. \n J'espere que ca fait 10 lignes. \n" ;
+  const char * message_bienvenue = "Bonjour, bienvenue sur mon serveur\n";
   char test[1024];
   char *methode;
   char *url;
