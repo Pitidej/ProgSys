@@ -46,6 +46,7 @@ int main ()
 	  fclose(fd);
 	} else {
 	  fprintf(fd,"%s\n", mess404);
+	  fflush(fd);
 	  fclose(fd);
 	}
       } else {
