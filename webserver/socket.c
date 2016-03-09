@@ -97,3 +97,11 @@ void initialiser_signaux (void)
       perror ("sigaction(SIGCHLD)");
     }
 }
+
+char* fgets_or_exit(char *buffer , int size , FILE *stream){
+	char *stock;	
+	if((buf = fgets(buffer, size, stream)) == NULL) {
+		exit(1);
+	}
+	return stock;
+}
