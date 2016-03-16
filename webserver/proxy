@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="iso-8859-15"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Fichier genere automatiquement ! ! NE PAS EDITER ! !
+Timestamp: 
+Commande: /
+-->
+
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='fr' lang='fr'>
+  <head>
+    <meta http-equiv='Content-Type' content='text/html; charset=iso-8859-15'/>
+    
+    <meta name='author' content='Bruno BEAUFILS (bruno.beaufils@lifl.fr)'/>
+    <meta name="Description" content= "Une machine du département informatique de l'IUT A"/>
+    
+    <title>Bienvenue au département informatique</title>
+    <link rel="stylesheet" type="text/css" href="/styles/iutinfo.css">
+    <style type="text/css">
+form { text-align:center; }
+ul#local-logos { position:fixed; top:1em; right:1em; list-style-type:none; padding:.25em; margin:0; background:white; border:1px dotted gray; }
+ul#local-logos li { display:inline; margin:0; }
+ul#local-logos img { height:2em; border:0; }
+ul#local-logos a { border:0; }
+ul#local-logos a:hover { background:white; }
+    </style>
+  </head>
+  
+  <body>
+    <h1>Bienvenue sur acajou06</h1
+>
+    <p>
+      Ceci est la page d'accueil du serveur web d'un micro-ordinateur du <a
+      href="http://www.iut-info.univ-lille1.fr">département informatique</a> de l'<a
+      href="http://www-iut.univ-lille1.fr">Institut Universitaire de
+      Technologies</a> de l'<a href="http://www.univ-lille1.fr">Université Lille 1 
+      (Sciences et Technologies)</a> .
+    </p>
+
+    <p>
+      Ce micro-ordinateur utilise la dernière version stable du système 
+      d'exploitation universel libre <a href="http://www.debian.org"> Debian</a>. 
+      Le serveur web est géré par la distribution du logiciel <a href="http://www.apache.org/">Apache</a>
+      faite par le système debian.
+    </p>
+    <h2>Le règlement d'usage du système d'information</h2>
+    <ul>
+      <li>
+	Le <a href='http://www.univ-lille1.fr/digitalAssets/8/8586_Lille1-Reglement_d_usage_du_systeme_d_information-20100618.pdf'> règlement d'usage</a> que l'on doit absolument respecter!
+	      </li>
+    </ul>
+    <h2>Quelques liens pratiques</h2>
+
+    <ul>
+      <li>
+        Le <a href='http://portail.univ-lille1.fr'>portail de services</a> de
+        l'université
+      </li>
+      <li>
+        L'<a href='http://accueil.iut-info.univ-lille1.fr'>intranet</a> du département
+        informatique
+      </li>
+      <li>
+        Le <a href='http://admin.iut-info.univ-lille1.fr'>service technique</a> du
+        département informatique
+      </li>
+    </ul>
+
+    <h2>Documentations</h2>
+
+    <p> 
+      Un certain nombre de documentation sont disponibles localement sur cette
+      machine ou sur les serveurs du département&nbsp;:
+    </p>
+    
+    <ul>
+      <li>
+        les documentations des logiciels installés accessibles via le système
+        de documentation <a href="/doc/">Doc-Central</a>
+      </li>
+
+      <li>
+        les documentations des logiciels installés accessibles via le système
+        de documentation <a href="/dwww/">Debian en ligne</a>
+      </li>
+
+      <li>
+        les pages <a href="/cgi-bin/info2www">info</a> du projet <acronym
+        title='Gnu is Not Unix'><a href="http://www.gnu.org">GNU</a></acronym>
+      </li>
+
+      <li>
+        les pages du <a href="/cgi-bin/man/man2html">manuel</a> Linux
+      </li>
+
+      <li>
+        la documentation complète de l'<acronym title='Application Programming Interface'><a
+        href="/java-doc/">API</a></acronym> JAVA&nbsp;2
+      </li>
+
+      <li>
+        la collection de <a
+        href="http://da2i.univ-lille1.fr/doc/">documentations</a> de la
+        licence professionnelle <acronym title="Systèmes Informatiques et
+        Logiciels">SIL</acronym> option <acronym title="Développement et
+        Administration Intranet et Internet">DA2I</acronym>.
+      </li>
+    </ul>
+
+    <form method="get" action="http://www.google.com/search">
+      <a href="http://www.google.fr"><img src="google.jpg" border="0" alt="Google" align="absmiddle"/></a>
+      <input type="text" name="q" size="31" maxlength="255" value=""/>
+      <input type="hidden" name="hl" value="fr"/>
+      <input type="submit" name="btng" value="Recherche Google"/>
+    </form>
+
+    <ul id="local-logos">
+      <li><a href="http://www.univ-lille1.fr"><img src="lille1.jpg" alt="Logo de Lille 1" height="13px"/></a></li>
+      <li><a href="http://www.ubuntu.com"><img src="ubuntu.png" alt="Logo Ubuntu" height="13px"/></a></li>
+      <li><a href="http://www.debian.org"><img src="debian.png" alt="Logo Debian" height="13px"/></a></li>
+    </ul>
+   
+    <p id="ours">
+      Éditeur&nbsp;:&nbsp;Bruno&nbsp;BEAUFILS
+      /
+      Fichier&nbsp;modifié&nbsp;le&nbsp;13/09/2013 à 09h55
+    </p>
+  </body>
+</html>
