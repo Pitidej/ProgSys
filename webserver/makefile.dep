@@ -1,2 +1,5 @@
-socket.o: socket.c socket.h
+socket.o: socket.c socket.h signal.h requete.h fichier.h
+requete.o: requete.c socket.h signal.h requete.h fichier.h
+fichier.o: fichier.c socket.h signal.h requete.h fichier.h
+signal.o: signal.c socket.h signal.h requete.h fichier.h
 main.o: main.c socket.h
